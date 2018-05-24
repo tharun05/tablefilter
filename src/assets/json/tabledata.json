@@ -1,0 +1,133 @@
+ [
+    {
+      "txnId": 11,
+      "txnStatus": "Approved",
+      "txnType": "Sale",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 12,
+      "txnStatus": "pending",
+      "txnType": "charge back",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 13,
+      "txnStatus": "rejected",
+      "txnType": "Sale",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 14,
+      "txnStatus": "Approved",
+      "txnType": "charge back",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 15,
+      "txnStatus": "Approved",
+      "txnType": "refund",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 16,
+      "txnStatus": "pending",
+      "txnType": "refund",
+      "createdDate": "23/05/2018",
+      "customerName": "Rohit",
+      "email": "Rohit@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 17,
+      "txnStatus": "rejected",
+      "txnType": "sale",
+      "createdDate": "23/05/2018",
+      "customerName": "Amar",
+      "email": "Amar@gmail.com",
+      "description": "account Activated",
+      "amount": 1000
+    },
+    {
+      "txnId": 18,
+      "txnStatus": "pending",
+      "txnType": "sale",
+      "createdDate": "28/05/2018",
+      "customerName": "John",
+      "email": "John@gmail.com",
+      "description": "account Activated",
+      "amount": 8900
+    },
+    {
+      "txnId": 19,
+      "txnStatus": "rejected",
+      "txnType": "refund",
+      "createdDate": "01/07/2018",
+      "customerName": "Nikhil",
+      "email": "Nikhil@gmail.com",
+      "description": "account Activated",
+      "amount": 4500
+    },
+    {
+      "txnId": 20,
+      "txnStatus": "Approved",
+      "txnType": "charge back",
+      "createdDate": "05/10/2018",
+      "customerName": "Vamshi",
+      "email": "Vamshi@gmail.com",
+      "description": "account Activated",
+      "amount": 5500
+    },
+    {
+      "txnId": 21,
+      "txnStatus": "Pending",
+      "txnType": "refund",
+      "createdDate": "21/11/2018",
+      "customerName": "Krishna",
+      "email": "Krishna@gmail.com",
+      "description": "account Deactivated",
+      "amount": 5100
+    },
+     {
+      "txnId": 22,
+      "txnStatus": "Approved",
+      "txnType": "charge back",
+      "createdDate": "08/09/2019",
+      "customerName": "Adam",
+      "email": "Adam@gmail.com",
+      "description": "account Deactivated",
+      "amount": 2100
+    },
+    {
+      "txnId": 23,
+      "txnStatus": "Pending",
+      "txnType": "charge back",
+      "createdDate": "04/10/2019",
+      "customerName": "sai kumar",
+      "email": "Sai@gmail.com",
+      "description": "account Deactivated",
+      "amount": 3400
+    }
+   
+]

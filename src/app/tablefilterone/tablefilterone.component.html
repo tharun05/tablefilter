@@ -1,0 +1,210 @@
+<!-- <mat-form-field class="example-full-width">
+  <input matInput placeholder="Serach" value="Search" [(ngModel)]="iFilter">
+</mat-form-field>
+
+<table class="table table-hover">
+  <thead>
+      <th>txn. Id</th>
+      <th>txn. Status</th>
+      <th>txn. Type</th>
+      <th>txn. Date</th>
+  </thead>
+  
+  <tbody>
+      <tr data-toggle="collapse" data-target="#accordion" class="clickable" *ngFor="let item of dataSource" (click)="getInfo()">
+          <td>{{item.txnId}}</td>
+          <td>{{item.txnStatus}}</td>
+          <td>{{item.txnType}}</td>
+          <td>{{item.createdDate}}</td>
+      </tr>
+      <tr>
+          <td colspan="3">
+            
+              <div id="accordion" class="collapse">
+                    <thead>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Amunt</th>
+                        </thead>
+                  
+              </div>
+          </td>
+       
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+          
+           -->
+<!-- 
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="text-center">Object Store</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed" style="border-collapse:collapse;">
+
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>txn Id</th>
+                        <th>Txn Status</th>
+                        <th>Txn Type</th>
+                        <th>Created Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" *ngFor="let item of dataSource">
+                        <td>
+                            <button class="btn btn-default btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </button>
+                        </td>
+                        <td>{{item.txnId}}</td>
+                        <td>{{item.txnStatus}}</td>
+                        <td>{{item.txnType}}</td>
+                        <td>{{item.createdDate}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="hiddenRow">
+                            <div class="accordian-body collapse" id="demo1">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <a href="WorkloadURL">Workload link</a>
+                                            </td>
+                                            <td>Bandwidth: Dandwidth Details</td>
+                                            <td>OBS Endpoint: end point</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Access Key</th>
+                                            <th>Secret Key</th>
+                                            <th>Status </th>
+                                            <th> Created</th>
+                                            <th> Expires</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>access-key-1</td>
+                                            <td>secretKey-1</td>
+                                            <td>Status</td>
+                                            <td>some date</td>
+                                            <td>some date</td>
+                                            <td>
+                                                <a href="#" class="btn btn-default btn-sm">
+                                                    <i class="glyphicon glyphicon-cog"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </td>
+                    </tr>
+              
+                    <tr>
+                        <td colspan="6" class="hiddenRow">
+                            <div id="demo2" class="accordian-body collapse">Demo2</div>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td colspan="6" class="hiddenRow">
+                            <div id="demo3" class="accordian-body collapse">Demo3</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div> -->
+<aside style="padding:38px;">
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-form-field>
+        <mat-select placeholder="Select Status" [(ngModel)]="iFilter">
+            <mat-option *ngFor="let item of dataSource" [value]="item.txnStatus">
+                {{ item.txnStatus }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Select Type" [(ngModel)]="iFilter">
+            <mat-option *ngFor="let item of txnTypee" [value]="item.viewValue">
+                {{ item.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Select txnId" value="Search" [(ngModel)]="iiFilter">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Choose a start date" (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Choose a end date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+</div>
+
+<mat-accordion>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>txn Id</th>
+                <th>Txn Status</th>
+                <th>Txn Type</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+    </table>
+    <mat-expansion-panel *ngFor="let item of dataSource | filter:['txnStatus','txnType']:iFilter | filter:['txnId']:iiFilter" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header (click)="getInfo(item)" fxLayout="row">
+            <mat-panel-title fxLayoutAlign="center center">
+                {{item.txnId}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                {{item.txnStatus}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                {{item.txnType}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                {{item.createdDate}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="border-top" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="userData">
+            <mat-panel-title fxLayoutAlign="center center">
+                <span>Customer ID :</span> {{userData.txnId}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                <span>Customer Email :</span> {{userData.email}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                <span>Customer Info :</span> {{userData.description}}
+            </mat-panel-title>
+            <mat-panel-title fxLayoutAlign="center center">
+                <span>Customer Amount :</span> {{userData.amount}}
+            </mat-panel-title>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+</aside>

@@ -1,0 +1,61 @@
+<aside style="padding:36px;">
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+<mat-form-field>
+  <mat-select placeholder="Select Status" [(ngModel)]="iFilter">
+    <mat-option *ngFor="let item of dataSource" [value]="item.txnStatus">
+      {{ item.txnStatus }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Select Type" [(ngModel)]="iFilter">
+    <mat-option *ngFor="let item of txnTypee" [value]="item.viewValue">
+      {{ item.value }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Select txnId" value="Search" [(ngModel)]="iFilter">
+</mat-form-field>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource | filter: ['txnStatus','txnType','createdDate','txnId'] :iFilter: DatePipe : iFilter" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="TxnId">
+    <th mat-header-cell *matHeaderCellDef> txnId. </th>
+    <td mat-cell *matCellDef="let element"> {{element.txnId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TxnStatus">
+    <th mat-header-cell *matHeaderCellDef> TxnStatus </th>
+    <td mat-cell *matCellDef="let element"> {{element.txnStatus}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TxnType">
+    <th mat-header-cell *matHeaderCellDef> TxnType </th>
+    <td mat-cell *matCellDef="let element"> {{element.txnType}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Created Date">
+    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</aside>

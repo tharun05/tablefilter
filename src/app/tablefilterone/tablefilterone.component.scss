@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+  }
+
+  th{
+    text-transform: uppercase !important;
+    text-align: center;
+  }
+  .border-top{
+    border-top: 1px solid grey;
+  }
+  tr::ng-deep{
+    padding:20px !important;
+  }
+
+  ::ng-deep mat-panel-title{
+    padding:16px;
+    text-align: left !important;
+  }
